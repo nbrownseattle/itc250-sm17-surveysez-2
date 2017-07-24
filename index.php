@@ -97,13 +97,12 @@ if(mysqli_num_rows($result) > 0)
         echo '
         <tr>
             <td>' . dbOut($row['AdminName']) . '</td>
-            <td><a href="' . VIRTUAL_PATH . 'survey/survey_view.php?id=' . (int)$row['SurveyID'] . '">' . dbOut($row['Title']) . '</a></td>
+            <td><a href="' . VIRTUAL_PATH . 'surveys/survey_view.php?id=' . (int)$row['SurveyID'] . '">' . dbOut($row['Title']) . '</a></td>
             <td>' . dbOut($row['DateAdded']) . '</td>
        </tr>       
     ';
        
-        
-   
+      
         
         /* echo '<div align="center"><a href="' . VIRTUAL_PATH . 'survey/survey_view.php?id=' . (int)$row['SurveyID'] . '">' . dbOut($row['Title']) . '</a>';
          
