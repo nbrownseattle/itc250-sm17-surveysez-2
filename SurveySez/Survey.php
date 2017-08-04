@@ -1,6 +1,6 @@
 <?php
 //Survey.php
-namespace SurveySez;
+namespace SurveySez; //makes this file part of the namespace nb.
 
 /**
  * Survey Class retrieves data info for an individual Survey
@@ -124,11 +124,21 @@ class Survey
 		{#be certain there are questions
 			foreach($this->aQuestion as $question)
 			{#print data for each 
-				echo $question->QuestionID . " ";
-				echo $question->Text . " ";
-				echo $question->Description . "<br />";
-				#call showAnswers() method to display array of Answer objects
-				$question->showAnswers() . "<br />";
+                			              
+                echo '
+                
+                <div class="panel panel-primary">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">' . $question->Text . '</h3>
+                  </div>
+                  <div class="panel-body">
+                    <p>' . $question->Description . '</p>
+                    ' . $question->showAnswers() . ' 
+                  </div>
+                </div>
+             
+                ';
+                
 			}
 		}else{
 			echo "There are currently no questions for this survey.";	

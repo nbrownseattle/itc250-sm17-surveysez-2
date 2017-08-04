@@ -33,7 +33,7 @@ class Question
 	 * @return string prints data from Answer Array 
 	 * @todo none
 	 */ 
-	function showAnswers()
+	/*function showAnswers()
 	{
 		if($this->TotalAnswers != 1){$s = 's';}else{$s = '';} #add 's' only if NOT one!!
 		echo "<em>[" . $this->TotalAnswers . " answer" . $s . "]</em> "; 
@@ -47,5 +47,24 @@ class Question
 			}
 		}
 		print "<br />";
+	}#end showAnswers() method
+    */
+    
+    	function showAnswers()
+	{
+		$myReturn = '';
+            
+		foreach($this->aAnswer as $answer)
+		{#print data for each
+			$myReturn .= '<p>' . $answer->AnswerID . " . ";
+			$myReturn .= $answer->Text . " ";
+			if($answer->Description != "")
+			{#only print description if not empty
+				echo "<em>" . $answer->Description . "</em>";
+			}
+            $myReturn .= '</p>';
+		}
+		
+            return $myReturn;
 	}#end showAnswers() method
 }# end Question class
