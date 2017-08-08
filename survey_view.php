@@ -27,7 +27,7 @@ if(isset($_GET['id']) && (int)$_GET['id'] > 0){#proper data must be on querystri
 	myRedirect(VIRTUAL_PATH . "surveys/index.php");
 }
 
-$mySurvey = new SurveySez\Survey($myID); //MY_Survey extends survey class so methods can be added
+$mySurvey = new SurveySez\My_survey($myID);  //MY_Survey extends survey class so methods can be added
 if($mySurvey->isValid)
 {
 	$config->titleTag = "'" . $mySurvey->Title . "' Survey!";
