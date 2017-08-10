@@ -19,8 +19,15 @@
 require '../inc_0700/config_inc.php'; #provides configuration, pathing, error handling, db credentials
 spl_autoload_register('MyAutoLoader::NamespaceLoader');//required to load SurveySez namespace objects
 
+# check variable of item passed in - if invalid data, forcibly redirect back to demo_list.php page
+if(isset($_GET['id']) && (int)$_GET['id'] > 0){#proper data must be on querystring
+	 $myID = (int)$_GET['id']; #Convert to integer, will equate to zero if fails
+}else{
+	myRedirect(VIRTUAL_PATH . "surveys/index.php");
+}
+
 # currently 'hard wired' to one response - will need to pass in #id of a Response on the qstring  
-$myResponse = new SurveySez\Response(1);
+$myResponse = new SurveySez\Response($myID);
 if($myResponse->isValid)
 {
 	$PageTitle = $myResponse->Title . " Survey Response!";
